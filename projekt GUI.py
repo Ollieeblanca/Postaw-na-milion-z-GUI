@@ -1,15 +1,36 @@
 import random
 import time
-print("Witam serdecznie w programie Postaw na milion! Jest z nami uczestnik gry. Jak masz na imię?")
-imie=input()
-print("Witamy Cię," ,imie,". Przypominam, że masz możliwość wyboru jednorazowego koła ratunkowego, jakim jest dodatkowe 20 sekund na odpowiedź, a na każdą odpowiedź masz 60 sekund. \nMasz do dyspozycji cały milion złotych! Podzieliliśmy go na 40 paczek po 25000 złotych. W zależności od tego ile obstawisz na poprawną odpowiedź, z taką kwotą przechodzisz do następnego etapu. Czy możemy zaczynać grę?")
-zaczynacczynie=input()
-if zaczynacczynie=="Tak" or zaczynacczynie=="tak" or zaczynacczynie=="TAK":
+
+class Milioner:
+    imie = ""
     lista=["Ile to jest 2 razy 2? A:1, B:4, C:500, D:2, E:5, F:7","Jak nazywa się znany skoczek narciarski? A:Małysz, B:Żak, C:Kowalski, D:Mickiewicz, E:Stachurski", "Żółta łódź podwodna to statek: A:Beatlesów B:Doorsów C:Pearl Jamu D:Joy Division?", "Kim była Ariel z filmu Disneya? A:Syrenką B:Elfem  C:Indianką ", "Gdyby całe wydobyte w historii złoto przetopić w jeden sześcian, to miałby bok o długości: A:20,5 m  B:205 m ? "]
     koloR=["kolo_R"]
     suma_pieniędzy=1000000
     suma_paczek=40
     dlugosc=len(lista)
+    
+    def __init__(self):
+        self.imie = input("Witam serdecznie w programie Postaw na milion! Jest z nami uczestnik gry. Jak masz na imię?")
+        self.przywitanie = print("Witamy Cię," ,self.imie,". Przypominam, że masz możliwość wyboru jednorazowego koła ratunkowego, jakim jest dodatkowe 20 sekund na odpowiedź, a na każdą odpowiedź masz 60 sekund. \nMasz do dyspozycji cały milion złotych! Podzieliliśmy go na 40 paczek po 25000 złotych. W zależności od tego ile obstawisz na poprawną odpowiedź, z taką kwotą przechodzisz do następnego etapu.")
+    
+    def poczatek_gry (self):
+        zaczynacczynie = input("Czy możemy grać?")
+        if zaczynacczynie == "Tak" or zaczynacczynie=="tak" or zaczynacczynie=="TAK":
+            print("Zagrajmy!")
+    else:
+        czy_konczymy = input("Czy chcesz skończyć grę?")
+        if czy_konczymy == "Tak" or czy_konczymy=="tak" or czy_konczymy=="TAK":
+            print("W takim razie żegnamy Cię,", self.imie)
+        else:
+            print("W takim razie kontynuujemy!")
+        
+        #######
+        
+Osoba1 = Milioner()
+Osoba1.poczatek_gry()
+
+#mam już dalej zaczęte, ale nie chciałam wklejać tak w połowie
+#######
     while dlugosc>0:
         wylosowana=random.choice(lista)
         if wylosowana== lista[0]:
