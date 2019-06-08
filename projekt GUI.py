@@ -73,6 +73,85 @@ okno_prosi_o_imie = tk.Button(glowneOkno, text="OK", width=20, command=imie)
 okno_prosi_o_imie.pack()
 
 tk.mainloop()
+
+### wstawiam całość z tego 1 pytania pierwszego, potem się to zmontuje
+import tkinter as tk
+from tkinter import *
+from PIL import Image,ImageTk
+from tkinter import messagebox
+
+glowneOkno=tk.Tk()
+glowneOkno.title( "Postaw na milion" )
+text = tk.StringVar()
+# te 3 poniżej wypadną, jesli zmienimy kocepcję okien do odpowiedzi (są do koncepcji z osobnym oknem pytań)
+'''
+okno_pytan=tk.Tk()
+okno_pytan.title( "Pytanie" )
+text = tk.StringVar()
+'''
+
+plotno=Canvas(glowneOkno,width=400, height=400)
+plotno.pack()
+obraz= Image.open("2.jpg")
+obrazTk=ImageTk.PhotoImage(obraz)
+plotno.create_image(200,200, image=obrazTk)
+
+description = tk.Label(glowneOkno, text="Wpisz imię:").pack()
+name = tk.Entry(glowneOkno,width=40)
+name.pack()
+def imie():
+    messagebox.showinfo("Witaj", name.get())
+okno_prosi_o_imie = tk.Button(glowneOkno, text="OK", width=20, command=imie)
+okno_prosi_o_imie.pack()
+#etykieta = Label(male_okno, text=name)
+#etykieta.pack()
+
+etykieta = Label(glowneOkno, text="Ile to jest 2 razy 2?")
+etykieta.pack()
+description = tk.Label(glowneOkno, text="Ile paczek obstawiasz?:").pack()
+description = tk.Label(glowneOkno, text="A:1").pack()
+A = tk.Entry(glowneOkno,width=40)
+A.pack()
+description = tk.Label(glowneOkno, text="B:4").pack()
+B = tk.Entry(glowneOkno,width=40,text="B")
+B.pack()
+description = tk.Label(glowneOkno, text="C:500").pack()
+C = tk.Entry(glowneOkno,width=40)
+C.pack()
+'''
+description = tk.Label(glowneOkno, text="D:2").pack()
+D = tk.Entry(glowneOkno,width=40)
+D.pack()
+description = tk.Label(glowneOkno, text="E:5").pack()
+E = tk.Entry(glowneOkno,width=40)
+E.pack()
+description = tk.Label(glowneOkno, text="F:7").pack()
+F = tk.Entry(glowneOkno,width=40)
+F.pack()
+'''
+def odp():
+    if A:
+        print("To jest tylko przykład")#Dokładnie, dziewczyny, to tylko przykład, a "if A" nie będzie działać, nad tym trzeba pomyśleć
+    #tu wpiszemy co się dzieje jeśli się ileś tam obstawi na jakąś odpowiedź
+okno_do_odp = tk.Button(glowneOkno, text="OK", width=20, command=odp)
+okno_do_odp.pack()
+###
+'''
+#to jest tylko początek do koncepcji z oknem z pytaniami osobno
+#tu zaczyna się usuwanie poprzedniego okna z pytaniem, by wyświetlić kolejne
+okno_pytan2=tk.Tk()
+okno_pytan2.title( "Pytanie" )
+text = tk.StringVar()
+def nastepne():
+    okno_pytan.destroy()
+    noweokno()
+def noweokno():
+    global dalej
+    dalej = Button(okno_pytan, text="dalej",command = nastepne)
+noweokno()
+'''
+tk.mainloop()
+#######
 '''
 #######
     while dlugosc>0:
