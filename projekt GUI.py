@@ -1,3 +1,51 @@
+### przyciski ( z funkcjami) koła ratunkowego i zakończenia gry (powinny być na każdym slajdzie oprócz pierwszego)###
+
+from tkinter import *
+from tkinter import messagebox
+import time
+from PIL import Image,ImageTk
+
+def kolo_ratunkowe():
+    messagebox.showinfo("Koło ratunkowe", "Masz 20 dodatkowych sekund! Poinformujemy Cię, gdy czas minie")
+    time.sleep(20)
+    messagebox.showinfo("Koło ratunkowe","Koniec czasu! Odpowiedz na pytania")
+
+def koniec_gry():
+    messagebox.showinfo("Koniec","Zakończyłeś grę!")
+    glowneOkno.destroy()
+
+glowneOkno=Tk()
+glowneOkno.title("Postaw na milion")
+glowneOkno.geometry("400x400")
+
+
+przycisk_kolo_ratunkowe=Button(glowneOkno, text="Koło ratunkowe", command=kolo_ratunkowe)
+przycisk_koniec_gry=Button(glowneOkno, text="Koniec gry", command=koniec_gry)
+
+
+
+przycisk_kolo_ratunkowe.grid()
+przycisk_koniec_gry.grid()
+glowneOkno.mainloop()
+
+#### a tutaj slajd nr 1- powitalny ###
+
+from tkinter import *
+from PIL import Image,ImageTk
+glowneOkno=Tk()
+glowneOkno.title("Postaw na milion")
+glowneOkno.geometry("400x400")
+
+plotno=Canvas(glowneOkno,width=400, height=400)
+plotno.pack()
+obraz= Image.open("1.jpg")
+obrazTk=ImageTk.PhotoImage(obraz)
+plotno.create_image(200,200, image=obrazTk)
+
+
+glowneOkno.mainloop()
+
+
 ### tu jest "slajd" nr 2 ( zdj nr 2) i możliwość wpisania imienia, ALE program nie zapamietuje JESZCZE tego imienia###
 
 import tkinter as tk
@@ -25,7 +73,7 @@ okno_prosi_o_imie = tk.Button(glowneOkno, text="OK", width=20, command=imie)
 okno_prosi_o_imie.pack()
 
 tk.mainloop()
-
+'''
 #######
     while dlugosc>0:
         wylosowana=random.choice(lista)
@@ -921,3 +969,4 @@ else:
         print("To koniec gry! Udało Ci się wygrać", suma_pieniędzy, "złotych!")
     else:
         print("W takim razie żegnamy Cię", imie)
+'''
