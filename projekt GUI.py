@@ -72,7 +72,6 @@ def imie():
 okno_prosi_o_imie = tk.Button(glowneOkno, text="OK", width=20, command=imie)
 okno_prosi_o_imie.pack()
 root=Tk()
-
 imie2 = Entry(root)
 A = Entry(root)
 B = Entry(root)
@@ -127,7 +126,6 @@ def imie():
 okno_prosi_o_imie = tk.Button(glowneOkno, text="OK", width=20, command=imie)
 okno_prosi_o_imie.pack()
 root=Tk()
-
 imie2 = Entry(root)
 A = Entry(root)
 B = Entry(root)
