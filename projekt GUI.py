@@ -9,7 +9,7 @@ import random
 
 lista=["Ile to jest 2 razy 2? A:4, B:1, C:500","Jak nazywa się znany skoczek narciarski? A:Małysz, B:Żak, C:Kowalski", "Żółta łódź podwodna to statek: A:Beatlesów B:Doorsów C:Pearl Jamu", "Kim była Ariel z filmu Disneya? A:Syrenką B:Elfem  C:Indianką ", "Gdyby całe wydobyte w historii złoto przetopić w jeden sześcian, to miałby bok o długości: A:20,5 m  B:205 m, C: 5m "]
 dlugosc=len(lista)
-
+suma_paczek = 40
 
 def zamknij_okno1():
     messagebox.showinfo("Zaczynamy", name.get())
@@ -17,23 +17,24 @@ def zamknij_okno1():
 
 
 def nowe_okno():
-    wylosowana=random.choice(lista)
-    suma_paczek=40
-    def zamknij():
-        while dlugosc >0:
-            if A.get() !="0":
-                lista.remove(wylosowana)
-                messagebox.showinfo(A.get(), "A to poprawna odpowiedź! Masz teraz tyle paczek, ile wyświetla się nad tym napisem.")
-                okno_pytan.destroy()
+    if len(lista) > 0:
+        wylosowana=random.choice(lista)
+        suma_paczek=40
+        def zamknij():
+            if dlugosc >0:
+                if A.get() !="0":
+                    lista.remove(wylosowana)
+                    messagebox.showinfo(A.get(), "A to poprawna odpowiedź! Masz teraz tyle paczek, ile wyświetla się nad tym napisem.")
+                    okno_pytan.destroy()
 
-                nowe_okno()
+                    nowe_okno()
+                else:
+                    messagebox.showinfo("Przegrałeś!","A to poprawna odpowiedź. Przykro mi.")
+                    okno_pytan.destroy()
+
             else:
-                messagebox.showinfo("Przegrałeś!","A to poprawna odpowiedź. Przykro mi.")
+                messagebox.showinfo(suma_paczek,"To koniec gry! Wygrałeś tyle paczek.")
                 okno_pytan.destroy()
-
-        else:
-            mesagebox.showinfo(suma_paczek.get(),"To koniec gry! Wygrałeś tyle paczek.")
-            okno_pytan.destroy()
 
 
     def koloR():
