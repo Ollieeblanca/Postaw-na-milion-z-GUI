@@ -71,13 +71,29 @@ def imie():
     text.set("Witaj".format(name.get()))
 okno_prosi_o_imie = tk.Button(glowneOkno, text="OK", width=20, command=imie)
 okno_prosi_o_imie.pack()
+root=Tk()
+
 imie2 = Entry(root)
+A = Entry(root)
+B = Entry(root)
+C = Entry(root)
+D = Entry(root)
+E = Entry(root)
+F = Entry(root)
+
 def zapamietaj():
     a = imie2.get()
+    b = A.get()
+    c = B.get()
+    d = C.get()
+    e = D.get()
+    f = E.get()
+    g = F.get()
+    
     root.destroy()
     
-    global name
-    name=[a]
+    global par
+    par=[a,b,c,d,e,f,g]
 
 tk.mainloop()
 
@@ -110,13 +126,29 @@ def imie():
     messagebox.showinfo("Witaj", name.get())
 okno_prosi_o_imie = tk.Button(glowneOkno, text="OK", width=20, command=imie)
 okno_prosi_o_imie.pack()
+root=Tk()
+
 imie2 = Entry(root)
+A = Entry(root)
+B = Entry(root)
+C = Entry(root)
+D = Entry(root)
+E = Entry(root)
+F = Entry(root)
+
 def zapamietaj():
     a = imie2.get()
+    b = A.get()
+    c = B.get()
+    d = C.get()
+    e = D.get()
+    f = E.get()
+    g = F.get()
+    
     root.destroy()
     
-    global name
-    name=[a]
+    global par
+    par=[a,b,c,d,e,f,g]
 #etykieta = Label(male_okno, text=name)
 #etykieta.pack()
 
