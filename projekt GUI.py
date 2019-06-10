@@ -1,53 +1,106 @@
-### przyciski ( z funkcjami) koła ratunkowego i zakończenia gry (powinny być na każdym slajdzie oprócz pierwszego)###
-
+### poniżej zmontowany kod, powiedzmy, że całość, ale niektóre rzeczy trzeba dopracować, np funkcje nowe okno ###
+import tkinter as glowne
 from tkinter import *
+from PIL import Image, ImageTk
 from tkinter import messagebox
 import time
-from PIL import Image,ImageTk
+import random
 
-def kolo_ratunkowe():
-    messagebox.showinfo("Koło ratunkowe", "Masz 20 dodatkowych sekund! Poinformujemy Cię, gdy czas minie")
-    time.sleep(20)
-    messagebox.showinfo("Koło ratunkowe","Koniec czasu! Odpowiedz na pytania")
 
-def koniec_gry():
-    messagebox.showinfo("Koniec","Zakończyłeś grę!")
+lista=["Ile to jest 2 razy 2? A:4, B:1, C:500","Jak nazywa się znany skoczek narciarski? A:Małysz, B:Żak, C:Kowalski", "Żółta łódź podwodna to statek: A:Beatlesów B:Doorsów C:Pearl Jamu", "Kim była Ariel z filmu Disneya? A:Syrenką B:Elfem  C:Indianką ", "Gdyby całe wydobyte w historii złoto przetopić w jeden sześcian, to miałby bok o długości: A:20,5 m  B:205 m, C: 5m "]
+dlugosc=len(lista)
+
+
+def zamknij_okno1():
+    messagebox.showinfo("Zaczynamy", name.get())
     glowneOkno.destroy()
 
-glowneOkno=Tk()
-glowneOkno.title("Postaw na milion")
-glowneOkno.geometry("400x400")
+
+def nowe_okno():
+    wylosowana=random.choice(lista)
+    suma_paczek=40
+    def zamknij():
+        while dlugosc >0:
+            if A.get() !="0":
+                lista.remove(wylosowana)
+                messagebox.showinfo(A.get(), "A to poprawna odpowiedź! Masz teraz tyle paczek, ile wyświetla się nad tym napisem.")
+                okno_pytan.destroy()
+
+                nowe_okno()
+            else:
+                messagebox.showinfo("Przegrałeś!","A to poprawna odpowiedź. Przykro mi.")
+                okno_pytan.destroy()
+
+        else:
+            mesagebox.showinfo(suma_paczek.get(),"To koniec gry! Wygrałeś tyle paczek.")
+            okno_pytan.destroy()
 
 
-przycisk_kolo_ratunkowe=Button(glowneOkno, text="Koło ratunkowe", command=kolo_ratunkowe)
-przycisk_koniec_gry=Button(glowneOkno, text="Koniec gry", command=koniec_gry)
+    def koloR():
+        messagebox.showinfo("Koło ratunkowe"," Masz 20 dodatkowych sekund. Poinformujemy Cię, gdy czas minie.")
+        time.sleep(20)
+        messagebox.showinfo("Koło ratunkowe","Koniec czasu!")
+        przycisk_kolo_ratunkowe.destroy()
+
+    def koniec_gry():
+        messagebox.showinfo("Koniec","Zakończyłeś grę!")
+        glowneOkno.destroy()
+
+    okno_pytan=glowne.Tk()
+    okno_pytan.title( "Pytanie" )
+
+    przycisk_kolo_ratunkowe=Button(okno_pytan, text="Koło ratunkowe", command=koloR)
+    przycisk_kolo_ratunkowe.pack()
+    przycisk_koniec_gry=Button(okno_pytan, text="Koniec gry", command=koniec_gry)
+    przycisk_koniec_gry.pack()
+
+
+    text = glowne.StringVar()
+    etykieta = Label(okno_pytan, text=wylosowana)
+    etykieta.pack()
+    description = glowne.Label(okno_pytan, text="Ile paczek obstawiasz na:").pack()
+    description = glowne.Label(okno_pytan, text="A").pack()
+    A = glowne.Entry(okno_pytan,width=40)
+    A.pack()
+    description = glowne.Label(okno_pytan, text="B").pack()
+    B = glowne.Entry(okno_pytan,width=40,text="B")
+    B.pack()
+    description = glowne.Label(okno_pytan, text="C").pack()
+    C = glowne.Entry(okno_pytan,width=40)
+    C.pack()
+
+    przycisk_dalej = Button(okno_pytan, text = "Dalej", command = zamknij)
+    przycisk_dalej.pack()
+
+
+    okno_pytan.mainloop()
+
+glowneOkno=glowne.Tk()
+text=glowne.StringVar()
 
 
 
-przycisk_kolo_ratunkowe.grid()
-przycisk_koniec_gry.grid()
-glowneOkno.mainloop()
-
-#### a tutaj slajd nr 1- powitalny ###
-
-from tkinter import *
-from PIL import Image,ImageTk
-glowneOkno=Tk()
-glowneOkno.title("Postaw na milion")
-glowneOkno.geometry("400x400")
-
-plotno=Canvas(glowneOkno,width=400, height=400)
+###początek###
+plotno=Canvas(glowneOkno, width=400, height=400)
 plotno.pack()
-obraz= Image.open("1.jpg")
-obrazTk=ImageTk.PhotoImage(obraz)
-plotno.create_image(200,200, image=obrazTk)
+zdjecie= Image.open("a.jpg")
+zdjecietk=ImageTk.PhotoImage(zdjecie)
+plotno.create_image(200,200, image=zdjecietk)
 
+glowneOkno.title("Postaw na milion")
+przywitanie = glowne.Label(glowneOkno, text = "Witam serdecznie w programie Postaw na milion!\nPrzypominam, że masz możliwość wyboru jednorazowego koła ratunkowego, jakim jest dodatkowe 20 sekund na odpowiedź. \nMasz do dyspozycji cały milion złotych! \nPodzieliliśmy go na 40 paczek po 25000 złotych. W zależności od tego ile obstawisz na poprawną odpowiedź, z taką kwotą przechodzisz do następnego etapu.\n Jest z nami uczestnik gry. Jak masz na imię?").pack()
+name = glowne.Entry(glowneOkno, width = 50)
+name.pack()
+przycisk_dalej = glowne.Button(glowneOkno, text = "Dalej", width=50, command= zamknij_okno1)
+przycisk_dalej.pack()
 
 glowneOkno.mainloop()
+nowe_okno()
 
 
-### tu jest "slajd" nr 2 ( zdj nr 2) i możliwość wpisania imienia, ALE program nie zapamietuje JESZCZE tego imienia###
 
+### nie usuwałam tego poniżej, bo to kod z możliwością zapamiętania - może się przydać###
+'''
 import tkinter as tk
 from tkinter import *
 from PIL import Image,ImageTk
@@ -95,108 +148,8 @@ def zapamietaj():
     par=[a,b,c,d,e,f,g]
 
 tk.mainloop()
-
-### wstawiam całość z tego 1 pytania pierwszego, potem się to zmontuje
-import tkinter as tk
-from tkinter import *
-from PIL import Image,ImageTk
-from tkinter import messagebox
-
-glowneOkno=tk.Tk()
-glowneOkno.title( "Postaw na milion" )
-text = tk.StringVar()
-# te 3 poniżej wypadną, jesli zmienimy kocepcję okien do odpowiedzi (są do koncepcji z osobnym oknem pytań)
-'''
-okno_pytan=tk.Tk()
-okno_pytan.title( "Pytanie" )
-text = tk.StringVar()
 '''
 
-plotno=Canvas(glowneOkno,width=400, height=400)
-plotno.pack()
-obraz= Image.open("2.jpg")
-obrazTk=ImageTk.PhotoImage(obraz)
-plotno.create_image(200,200, image=obrazTk)
-
-description = tk.Label(glowneOkno, text="Wpisz imię:").pack()
-name = tk.Entry(glowneOkno,width=40)
-name.pack()
-def imie():
-    messagebox.showinfo("Witaj", name.get())
-okno_prosi_o_imie = tk.Button(glowneOkno, text="OK", width=20, command=imie)
-okno_prosi_o_imie.pack()
-root=Tk()
-imie2 = Entry(root)
-A = Entry(root)
-B = Entry(root)
-C = Entry(root)
-D = Entry(root)
-E = Entry(root)
-F = Entry(root)
-
-def zapamietaj():
-    a = imie2.get()
-    b = A.get()
-    c = B.get()
-    d = C.get()
-    e = D.get()
-    f = E.get()
-    g = F.get()
-    
-    root.destroy()
-    
-    global par
-    par=[a,b,c,d,e,f,g]
-#etykieta = Label(male_okno, text=name)
-#etykieta.pack()
-
-etykieta = Label(glowneOkno, text="Ile to jest 2 razy 2?")
-etykieta.pack()
-description = tk.Label(glowneOkno, text="Ile paczek obstawiasz?:").pack()
-description = tk.Label(glowneOkno, text="A:1").pack()
-A = tk.Entry(glowneOkno,width=40)
-A.pack()
-description = tk.Label(glowneOkno, text="B:4").pack()
-B = tk.Entry(glowneOkno,width=40,text="B")
-B.pack()
-description = tk.Label(glowneOkno, text="C:500").pack()
-C = tk.Entry(glowneOkno,width=40)
-C.pack()
-'''
-description = tk.Label(glowneOkno, text="D:2").pack()
-D = tk.Entry(glowneOkno,width=40)
-D.pack()
-description = tk.Label(glowneOkno, text="E:5").pack()
-E = tk.Entry(glowneOkno,width=40)
-E.pack()
-description = tk.Label(glowneOkno, text="F:7").pack()
-F = tk.Entry(glowneOkno,width=40)
-F.pack()
-'''
-def odp():
-    if A:
-        print("To jest tylko przykład")#Dokładnie, dziewczyny, to tylko przykład, a "if A" nie będzie działać, nad tym trzeba pomyśleć
-    #tu wpiszemy co się dzieje jeśli się ileś tam obstawi na jakąś odpowiedź
-okno_do_odp = tk.Button(glowneOkno, text="OK", width=20, command=odp)
-okno_do_odp.pack()
-###
-'''
-#to jest tylko początek do koncepcji z oknem z pytaniami osobno
-#tu zaczyna się usuwanie poprzedniego okna z pytaniem, by wyświetlić kolejne
-okno_pytan2=tk.Tk()
-okno_pytan2.title( "Pytanie" )
-text = tk.StringVar()
-def nastepne():
-    okno_pytan.destroy()
-    noweokno()
-def noweokno():
-    global dalej
-    dalej = Button(okno_pytan, text="dalej",command = nastepne)
-noweokno()
-'''
-tk.mainloop()
-#######
-'''
 #######
     while dlugosc>0:
         wylosowana=random.choice(lista)
