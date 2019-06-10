@@ -72,6 +72,13 @@ def imie():
 okno_prosi_o_imie = tk.Button(glowneOkno, text="OK", width=20, command=imie)
 okno_prosi_o_imie.pack()
 
+def zapamietaj():
+    a = imie.get()
+    root.destroy()
+    
+    global name
+    name=[a]
+
 tk.mainloop()
 
 ### wstawiam całość z tego 1 pytania pierwszego, potem się to zmontuje
