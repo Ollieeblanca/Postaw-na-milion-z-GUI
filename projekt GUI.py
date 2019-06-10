@@ -71,9 +71,9 @@ def imie():
     text.set("Witaj".format(name.get()))
 okno_prosi_o_imie = tk.Button(glowneOkno, text="OK", width=20, command=imie)
 okno_prosi_o_imie.pack()
-
+imie2 = Entry(root)
 def zapamietaj():
-    a = imie.get()
+    a = imie2.get()
     root.destroy()
     
     global name
@@ -110,9 +110,9 @@ def imie():
     messagebox.showinfo("Witaj", name.get())
 okno_prosi_o_imie = tk.Button(glowneOkno, text="OK", width=20, command=imie)
 okno_prosi_o_imie.pack()
-
+imie2 = Entry(root)
 def zapamietaj():
-    a = imie.get()
+    a = imie2.get()
     root.destroy()
     
     global name
