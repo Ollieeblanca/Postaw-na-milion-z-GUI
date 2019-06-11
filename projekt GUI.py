@@ -9,6 +9,7 @@ import random
 
 lista=["Ile to jest 2 razy 2? A:4, B:1, C:500","Jak nazywa się znany skoczek narciarski? A:Małysz, B:Żak, C:Kowalski", "Żółta łódź podwodna to statek: A:Beatlesów B:Doorsów C:Pearl Jamu", "Kim była Ariel z filmu Disneya? A:Syrenką B:Elfem  C:Indianką ", "Gdyby całe wydobyte w historii złoto przetopić w jeden sześcian, to miałby bok o długości: A:20,5 m  B:205 m, C: 5m "]
 dlugosc=len(lista)
+czyuzytokola= False
 suma_paczek = 40
 
 def zamknij_okno1():
@@ -26,7 +27,6 @@ def nowe_okno():
                     lista.remove(wylosowana)
                     messagebox.showinfo(A.get(), "A to poprawna odpowiedź! Masz teraz tyle paczek, ile wyświetla się nad tym napisem.")
                     okno_pytan.destroy()
-
                     nowe_okno()
                 else:
                     messagebox.showinfo("Przegrałeś!","A to poprawna odpowiedź. Przykro mi.")
@@ -38,6 +38,8 @@ def nowe_okno():
 
 
     def koloR():
+        global czyuzytokola
+        czyuzytokola= True
         messagebox.showinfo("Koło ratunkowe"," Masz 20 dodatkowych sekund. Poinformujemy Cię, gdy czas minie.")
         time.sleep(20)
         messagebox.showinfo("Koło ratunkowe","Koniec czasu!")
@@ -45,13 +47,15 @@ def nowe_okno():
 
     def koniec_gry():
         messagebox.showinfo("Koniec","Zakończyłeś grę!")
-        glowneOkno.destroy()
+        okno_pytan.destroy()
 
     okno_pytan=glowne.Tk()
     okno_pytan.title( "Pytanie" )
 
-    przycisk_kolo_ratunkowe=Button(okno_pytan, text="Koło ratunkowe", command=koloR)
-    przycisk_kolo_ratunkowe.pack()
+    if czyuzytokola==False:
+        przycisk_kolo_ratunkowe=Button(okno_pytan, text="Koło ratunkowe", command=koloR)
+        przycisk_kolo_ratunkowe.pack()
+
     przycisk_koniec_gry=Button(okno_pytan, text="Koniec gry", command=koniec_gry)
     przycisk_koniec_gry.pack()
 
@@ -76,12 +80,10 @@ def nowe_okno():
 
     okno_pytan.mainloop()
 
+###poczatek###
 glowneOkno=glowne.Tk()
 text=glowne.StringVar()
 
-
-
-###początek###
 plotno=Canvas(glowneOkno, width=400, height=400)
 plotno.pack()
 zdjecie= Image.open("a.jpg")
