@@ -95,7 +95,7 @@ zdjecietk=ImageTk.PhotoImage(zdjecie)
 plotno.create_image(200,200, image=zdjecietk)
 
 glowneOkno.title("Postaw na milion")
-przywitanie = glowne.Label(glowneOkno, text = "Witam serdecznie w programie Postaw na milion!\nPrzypominam, że masz możliwość wyboru jednorazowego koła ratunkowego, jakim jest dodatkowe 20 sekund na odpowiedź. \nMasz do dyspozycji cały milion złotych! \nPodzieliliśmy go na 40 paczek po 25000 złotych. W zależności od tego ile obstawisz na poprawną odpowiedź, z taką kwotą przechodzisz do następnego etapu.\n Jest z nami uczestnik gry. Jak masz na imię?").pack()
+przywitanie = glowne.Label(glowneOkno, text = "Witam serdecznie w programie Postaw na milion!\nPrzypominam, że masz 60 sekund na odpowiedź oraz możliwość wyboru jednorazowego koła ratunkowego, jakim jest dodatkowe 20 sekund na odpowiedź. \nMasz do dyspozycji cały milion złotych! \nPodzieliliśmy go na 40 paczek po 25000 złotych. W zależności od tego ile obstawisz na poprawną odpowiedź, z taką kwotą przechodzisz do następnego etapu.\n Jest z nami uczestnik gry. Jak masz na imię?").pack()
 name = glowne.Entry(glowneOkno, width = 50)
 name.pack()
 przycisk_dalej = glowne.Button(glowneOkno, text = "Dalej", width=50, command= zamknij_okno1)
