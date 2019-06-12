@@ -1,4 +1,4 @@
-### poniżej zmontowany kod, powiedzmy, że całość, ale niektóre rzeczy trzeba dopracować, np funkcje nowe okno ###
+
 import tkinter as glowne
 from tkinter import *
 from PIL import Image, ImageTk
@@ -106,56 +106,6 @@ nowe_okno()
 
 
 
-### nie usuwałam tego poniżej, bo to kod z możliwością zapamiętania - może się przydać###
-'''
-import tkinter as tk
-from tkinter import *
-from PIL import Image,ImageTk
-
-
-glowneOkno=tk.Tk()
-glowneOkno.title( "Postaw na milion" )
-text = tk.StringVar()
-
-
-plotno=Canvas(glowneOkno,width=400, height=400)
-plotno.pack()
-obraz= Image.open("2.jpg")
-obrazTk=ImageTk.PhotoImage(obraz)
-plotno.create_image(200,200, image=obrazTk)
-
-description = tk.Label(glowneOkno, text="Wpisz imię:").pack()
-name = tk.Entry(glowneOkno,width=40)
-name.pack()
-def imie():
-    text.set("Witaj".format(name.get()))
-okno_prosi_o_imie = tk.Button(glowneOkno, text="OK", width=20, command=imie)
-okno_prosi_o_imie.pack()
-root=Tk()
-imie2 = Entry(root)
-A = Entry(root)
-B = Entry(root)
-C = Entry(root)
-D = Entry(root)
-E = Entry(root)
-F = Entry(root)
-
-def zapamietaj():
-    a = imie2.get()
-    b = A.get()
-    c = B.get()
-    d = C.get()
-    e = D.get()
-    f = E.get()
-    g = F.get()
-    
-    root.destroy()
-    
-    global par
-    par=[a,b,c,d,e,f,g]
-
-tk.mainloop()
-'''
 
 #######
     while dlugosc>0:
