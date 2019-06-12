@@ -10,7 +10,7 @@ import random
 lista=["Ile to jest 2 razy 2? A:4, B:1, C:500","Jak nazywa się znany skoczek narciarski? A:Małysz, B:Żak, C:Kowalski", "Żółta łódź podwodna to statek: A:Beatlesów B:Doorsów C:Pearl Jamu", "Kim była Ariel z filmu Disneya? A:Syrenką B:Elfem  C:Indianką ", "Gdyby całe wydobyte w historii złoto przetopić w jeden sześcian, to miałby bok o długości: A:20,5 m  B:205 m, C: 5m "]
 dlugosc=len(lista)
 czyuzytokola= False
-suma_paczek = 40
+
 
 def zamknij_okno1():
     messagebox.showinfo("Zaczynamy", name.get())
@@ -20,7 +20,6 @@ def zamknij_okno1():
 def nowe_okno():
     if len(lista) > 0:
         wylosowana=random.choice(lista)
-        suma_paczek=40
         def zamknij():
             if dlugosc >0:
                 if A.get() !="0":
@@ -33,7 +32,7 @@ def nowe_okno():
                     okno_pytan.destroy()
 
             else:
-                messagebox.showinfo(suma_paczek,"To koniec gry! Wygrałeś tyle paczek.")
+                messagebox.showinfo("Wygrałeś!","To koniec gry! Wygrałeś tyle paczek ile obstawiłeś na A.")
                 okno_pytan.destroy()
 
 
