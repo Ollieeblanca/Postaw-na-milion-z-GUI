@@ -34,6 +34,9 @@ def nowe_okno():
             else:
                 messagebox.showinfo("Wygrałeś!","To koniec gry! Wygrałeś tyle paczek ile obstawiłeś na A.")
                 okno_pytan.destroy()
+    else:
+        messagebox.showinfo("Wygrałeś!","To koniec gry! Wygrałeś tyle paczek ile obstawiłeś na A.")
+        okno_pytan.destroy()
 
 
     def koloR():
