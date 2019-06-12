@@ -73,6 +73,10 @@ def nowe_okno():
     description = glowne.Label(okno_pytan, text="C").pack()
     C = Spinbox(okno_pytan, from_=0, to=40)
     C.pack()
+    
+    messagebox.showinfo("Czas start!", "Masz 60 sekund na zastanowienie się")
+    time.sleep(60)
+    messagebox.showinfo("Koniec czasu!", "Odpowiedz lub użyj koła ratunkowego")
 
     przycisk_dalej = Button(okno_pytan, text = "Dalej", command = zamknij)
     przycisk_dalej.pack()
