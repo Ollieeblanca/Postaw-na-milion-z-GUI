@@ -78,7 +78,7 @@ def nowe_okno():
     
     messagebox.showinfo("Czas start!", "Masz 60 sekund na zastanowienie się")
     time.sleep(60)
-    messagebox.showinfo("Koniec czasu!", "Odpowiedz lub użyj koła ratunkowego")
+    messagebox.showinfo("Koniec czasu!", "Odpowiedz lub użyj koła ratunkowego, chyba że już z niego skorzystałeś.")
 
     przycisk_dalej = Button(okno_pytan, text = "Dalej", command = zamknij)
     przycisk_dalej.pack()
